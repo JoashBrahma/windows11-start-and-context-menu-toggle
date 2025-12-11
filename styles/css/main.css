@@ -19,17 +19,17 @@
   --desktop-padding: calc(var(--space-sm) + 2px);
   --start-menu-max-width: 550px;
   --start-menu-border-radius: calc(var(--border-radius-sm) + 2px);
-  --start-menu-padding: var(--space-xl);
   --start-menu-bg-primary-color: rgba(32, 32, 32, 0.9);
   --start-menu-backdrop-blur: blur(8px);
   --start-menu-transition: all 300ms linear;
+  --start-menu-top-padding: var(--space-xl);
   --search-bar-padding: calc(var(--space-sm) + 2px);
   --search-bar-border-radius: var(--border-radius-lg);
   --search-bar-bg-color: rgb(24, 24, 24);
   --search-bar-text-color: whitesmoke;
   --search-bar-icon-size: var(--text-size-lg);
   --search-bar-border: 1px solid rgb(48, 48, 48);
-  --pinned-apps-container-padding: var(--space-md) var(--space-lg);
+  --pinned-apps-container-padding: var(--space-xs) var(--space-xl);
   --pinned-apps-header-margin: var(--space-md);
   --pinned-apps-header-text-size: var(--text-size-md);
   --pinned-apps-header-text-color: whitesmoke;
@@ -45,6 +45,18 @@
   --pinned-app-bg-secondary-color: rgba(48, 48, 48, 0.6);
   --pinned-app-border-radius: var(--border-radius-xs);
   --pinned-app-transition: all 50ms linear;
+  --start-menu-bottom-padding: var(--space-sm) var(--space-xl);
+  --start-menu-bottom-text-color: whitesmoke;
+  --start-menu-bottom-bg-color: rgb(24, 24, 24);
+  --user-padding: var(--space-sm) calc(var(--space-sm) + 4px);
+  --user-border-border: var(--border-radius-xs);
+  --user-bg-primary-color: transparent;
+  --user-bg-secondary-color: rgba(48, 48, 48, 0.6);
+  --username-text-size: var(--text-size-xs);
+  --shutdown-btn-text-size: var(--text-size-lg);
+  --shutdown-btn-bg-primary-color: transparent;
+  --shutdown-btn-bg-secondary-color: rgba(48, 48, 48, 0.6);
+  --shutdown-btn-padding: var(--space-sm);
   --context-menu-max-width: 225px;
   --context-menu-bg-primary-color: rgba(24, 24, 24, 0.8);
   --context-menu-backdrop-blur: blur(8px);
@@ -110,12 +122,11 @@ body {
   aspect-ratio: 0.9;
   display: flex;
   flex-direction: column;
-  gap: var(--space-md);
   position: absolute;
   bottom: -100%;
   opacity: 0;
+  overflow: hidden;
   border-radius: var(--start-menu-border-radius);
-  padding: var(--start-menu-padding);
   background-color: var(--start-menu-bg-primary-color);
   backdrop-filter: var(--start-menu-backdrop-blur);
   transition: var(--start-menu-transition);
@@ -126,6 +137,9 @@ body {
   opacity: 1;
 }
 
+.start-menu__top {
+  padding: var(--start-menu-top-padding);
+}
 .start-menu__top .search-bar {
   line-height: 0;
   display: flex;
@@ -136,6 +150,7 @@ body {
   border: var(--search-bar-border);
   color: var(--search-bar-text-color);
   background-color: var(--search-bar-bg-color);
+  padding: --cont;
 }
 .start-menu__top .search-bar i {
   font-size: var(--search-bar-icon-size);
@@ -172,7 +187,6 @@ body {
   background-color: var(--all-apps-btn-bg-secondary-color);
 }
 .start-menu__pinned-apps-container .start-menu__pinned-apps {
-  height: 100%;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   align-content: start;
@@ -195,6 +209,47 @@ body {
 }
 .start-menu__pinned-apps-container .start-menu__pinned-apps .start-menu__pinned-app:hover {
   background-color: var(--pinned-app-bg-secondary-color);
+}
+
+.start-menu__bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--start-menu-bottom-text-color);
+  background-color: var(--start-menu-bottom-bg-color);
+  padding: var(--start-menu-bottom-padding);
+}
+.start-menu__bottom .user {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  background-color: var(--user-bg-primary-color);
+  padding: var(--user-padding);
+  border-radius: var(--user-border-border);
+}
+.start-menu__bottom .user .user__image {
+  width: 32px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background-image: url(../../images/background.jpg);
+  background-size: cover;
+  background-position: center;
+}
+.start-menu__bottom .user .user__name {
+  font-size: var(--username-text-size);
+}
+.start-menu__bottom .user:hover {
+  background-color: var(--user-bg-secondary-color);
+}
+.start-menu__bottom .shutdown-btn {
+  border: none;
+  color: inherit;
+  font-size: var(--shutdown-btn-text-size);
+  background-color: var(--shutdown-btn-bg-primary-color);
+  padding: var(--shutdown-btn-padding);
+}
+.start-menu__bottom .shutdown-btn:hover {
+  background-color: var(--shutdown-btn-bg-secondary-color);
 }
 
 .context-menu {
