@@ -1,0 +1,264 @@
+:root {
+  --text-size-xs: 12px;
+  --text-size-sm: 14px;
+  --text-size-md: 16px;
+  --text-size-lg: 20px;
+  --text-size-xl: 24px;
+  --text-size-2xl: 32px;
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --border-radius-xs: 4px;
+  --border-radius-sm: 8px;
+  --border-radius-md: 12px;
+  --border-radius-lg: 16px;
+  --border-radius-xl: 24px;
+  --wallpaper: url(../../images/background.jpg);
+  --desktop-padding: calc(var(--space-sm) + 2px);
+  --start-menu-max-width: 550px;
+  --start-menu-border-radius: calc(var(--border-radius-sm) + 2px);
+  --start-menu-padding: var(--space-xl);
+  --start-menu-bg-primary-color: rgba(32, 32, 32, 0.9);
+  --start-menu-backdrop-blur: blur(8px);
+  --start-menu-transition: all 300ms linear;
+  --search-bar-padding: calc(var(--space-sm) + 2px);
+  --search-bar-border-radius: var(--border-radius-lg);
+  --search-bar-bg-color: rgb(24, 24, 24);
+  --search-bar-text-color: whitesmoke;
+  --search-bar-icon-size: var(--text-size-lg);
+  --search-bar-border: 1px solid rgb(48, 48, 48);
+  --pinned-apps-container-padding: var(--space-md) var(--space-lg);
+  --pinned-apps-header-margin: var(--space-md);
+  --pinned-apps-header-text-size: var(--text-size-md);
+  --pinned-apps-header-text-color: whitesmoke;
+  --all-apps-btn-border-radius: var(--border-radius-xs);
+  --all-apps-btn-bg-primary-color: rgba(64, 64, 64, 0.8);
+  --all-apps-btn-bg-secondary-color: rgba(80, 80, 80, 0.8);
+  --all-apps-btn-transition: all 50ms linear;
+  --pinned-app-padding: var(--space-md);
+  --pinned-app-icon-size: var(--text-size-2xl);
+  --pinned-app-name-text-size: var(--text-size-xs);
+  --pinned-app-color: whitesmoke;
+  --pinned-app-bg-primary-color: transparent;
+  --pinned-app-bg-secondary-color: rgba(48, 48, 48, 0.6);
+  --pinned-app-border-radius: var(--border-radius-xs);
+  --pinned-app-transition: all 50ms linear;
+  --context-menu-max-width: 225px;
+  --context-menu-bg-primary-color: rgba(24, 24, 24, 0.8);
+  --context-menu-backdrop-blur: blur(8px);
+  --context-menu-text-color: whitesmoke;
+  --context-menu-padding: var(--space-sm);
+  --context-menu-border-radius: var(--border-radius-xs);
+  --context-menu-item-padding: var(--space-xs) var(--space-sm);
+  --context-menu-item-text-size: var(--text-size-sm);
+  --context-menu-item-bg-primary-color: transparent;
+  --context-menu-item-bg-secondary-color: rgba(52, 52, 52, 0.6);
+  --context-menu-hr-color: rgba(52, 52, 52, 0.6);
+  --taskbar-bg-color: rgba(32, 32, 32, 0.8);
+  --taskbar-backdrop-blur: blur(16px);
+  --taskbar-border: 1px solid rgb(64, 64, 64);
+  --taskbar-padding: var(--space-xs) calc(var(--space-sm) + 2px);
+  --taskbar-btn-bg-primary-color: transparent;
+  --taskbar-btn-bg-secondary-color: rgb(48, 48, 48);
+  --taskbar-btn-icon-size: 24px;
+  --taskbar-btn-padding: var(--space-sm);
+  --taskbar-btn-border-radius: var(--border-radius-xs);
+  --taskbar-btn-primary-border: 1px solid transparent;
+  --taskbar-btn-secondary-border: 1px solid rgb(56, 56, 56);
+  --taskbar-btn-transition: all 50ms linear;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  user-select: none;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+.screen {
+  height: 100%;
+  position: relative;
+  background-image: var(--wallpaper);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.desktop {
+  height: 100%;
+  padding: var(--desktop-padding);
+  position: relative;
+}
+
+.start-menu {
+  max-width: var(--start-menu-max-width);
+  width: 100%;
+  aspect-ratio: 0.9;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  position: absolute;
+  bottom: -100%;
+  opacity: 0;
+  border-radius: var(--start-menu-border-radius);
+  padding: var(--start-menu-padding);
+  background-color: var(--start-menu-bg-primary-color);
+  backdrop-filter: var(--start-menu-backdrop-blur);
+  transition: var(--start-menu-transition);
+}
+
+.start-menu--show {
+  bottom: var(--desktop-padding);
+  opacity: 1;
+}
+
+.start-menu__top .search-bar {
+  line-height: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--search-bar-padding);
+  border-radius: var(--search-bar-border-radius);
+  border: var(--search-bar-border);
+  color: var(--search-bar-text-color);
+  background-color: var(--search-bar-bg-color);
+}
+.start-menu__top .search-bar i {
+  font-size: var(--search-bar-icon-size);
+}
+.start-menu__top .search-bar input {
+  width: 100%;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: inherit;
+}
+
+.start-menu__pinned-apps-container {
+  padding: var(--pinned-apps-container-padding);
+  height: 100%;
+}
+.start-menu__pinned-apps-container .start-menu__pinned-apps-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--pinned-apps-header-text-size);
+  color: var(--pinned-apps-header-text-color);
+  margin-bottom: var(--pinned-apps-header-margin);
+}
+.start-menu__pinned-apps-container .start-menu__pinned-apps-header button {
+  border: none;
+  padding: 0.4em 0.8em;
+  color: inherit;
+  border-radius: var(--all-apps-btn-border-radius);
+  background-color: var(--all-apps-btn-bg-primary-color);
+  transition: var(--all-apps-btn-transition);
+}
+.start-menu__pinned-apps-container .start-menu__pinned-apps-header button:hover {
+  background-color: var(--all-apps-btn-bg-secondary-color);
+}
+.start-menu__pinned-apps-container .start-menu__pinned-apps {
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  align-content: start;
+}
+.start-menu__pinned-apps-container .start-menu__pinned-apps .start-menu__pinned-app {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: var(--pinned-app-padding);
+  color: var(--pinned-app-color);
+  border-radius: var(--pinned-app-border-radius);
+  transition: var(--pinned-app-transition);
+}
+.start-menu__pinned-apps-container .start-menu__pinned-apps .start-menu__pinned-app-icon i {
+  font-size: var(--pinned-app-icon-size);
+}
+.start-menu__pinned-apps-container .start-menu__pinned-apps .start-menu__pinned-app p {
+  font-size: var(--pinned-app-name-text-size);
+}
+.start-menu__pinned-apps-container .start-menu__pinned-apps .start-menu__pinned-app:hover {
+  background-color: var(--pinned-app-bg-secondary-color);
+}
+
+.context-menu {
+  max-width: var(--context-menu-max-width);
+  width: 100%;
+  position: absolute;
+  display: none;
+  flex-direction: column;
+  gap: var(--space-xs);
+  background-color: var(--context-menu-bg-primary-color);
+  color: var(--context-menu-text-color);
+  padding: var(--context-menu-padding);
+  backdrop-filter: var(--context-menu-backdrop-blur);
+  border-radius: var(--context-menu-border-radius);
+}
+.context-menu .context-menu__item {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: calc(var(--space-sm) + 2px);
+  padding: var(--context-menu-item-padding);
+}
+.context-menu .context-menu__item:hover {
+  background-color: var(--context-menu-item-bg-secondary-color);
+}
+.context-menu .context-menu__item p {
+  font-size: var(--context-menu-item-text-size);
+}
+.context-menu .context-menu__item p ~ i {
+  margin-left: auto;
+}
+.context-menu hr {
+  border-color: var(--context-menu-hr-color);
+}
+
+.context-menu--show {
+  display: flex;
+}
+
+.taskbar {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  padding: var(--taskbar-padding);
+  background-color: var(--taskbar-bg-color);
+  backdrop-filter: var(--taskbar-backdrop-blur);
+  border-top: var(--taskbar-border);
+}
+.taskbar .taskbar__btn {
+  line-height: 0;
+  border: none;
+  padding: var(--taskbar-btn-padding);
+  background-color: var(--taskbar-btn-bg-primary-color);
+  border-radius: var(--taskbar-btn-border-radius);
+  border: var(--taskbar-btn-primary-border);
+  transition: var(--taskbar-btn-transition);
+}
+.taskbar .taskbar__btn .taskbar__btn-icon {
+  width: var(--taskbar-btn-icon-size);
+}
+.taskbar .taskbar__btn:hover {
+  background-color: var(--taskbar-btn-bg-secondary-color);
+  border: var(--taskbar-btn-secondary-border);
+}
+.taskbar .taskbar__btn:active .taskbar__btn-icon {
+  transform: scale(0.8);
+}/*# sourceMappingURL=main.css.map */

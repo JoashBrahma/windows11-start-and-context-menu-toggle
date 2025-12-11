@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./styles/css/main.css">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.7.0/fonts/remixicon.css" rel="stylesheet" />
+  <script type="module" src="./js/main.js" defer></script>
+</head>
+
+<body>
+  <div class="screen">
+    <div class="desktop">
+      <div class="start-menu">
+        <div class="start-menu__top">
+          <div class="search-bar">
+            <i class="ri-search-line"></i>
+            <input type="text" placeholder="Search for apps, settings and documents" autocomplete="off"
+              spellcheck="false">
+          </div>
+        </div>
+        <div class="start-menu__pinned-apps-container">
+          <div class="start-menu__pinned-apps-header">
+            <h4>Pinned</h4>
+            <button type="button">All <i class="ri-arrow-right-s-line"></i></button>
+          </div>
+          <div class="start-menu__pinned-apps">
+            <div class="start-menu__pinned-app">
+              <div class="start-menu__pinned-app-icon">
+                <i class="ri-settings-4-line"></i>
+              </div>
+              <p class="start-menu__pinned-app-title">Settings</p>
+            </div>
+            <div class="start-menu__pinned-app">
+              <div class="start-menu__pinned-app-icon">
+                <i class="ri-calculator-line"></i>
+              </div>
+              <p class="start-menu__pinned-app-title">Calculator</p>
+            </div>
+            <div class="start-menu__pinned-app">
+              <div class="start-menu__pinned-app-icon">
+                <i class="ri-file-excel-2-line"></i>
+              </div>
+              <p class="start-menu__pinned-app-title">MS Excel</p>
+            </div>
+            <div class="start-menu__pinned-app">
+              <div class="start-menu__pinned-app-icon">
+                <i class="ri-chrome-fill"></i>
+              </div>
+              <p class="start-menu__pinned-app-title">Chrome</p>
+            </div>
+            <div class="start-menu__pinned-app">
+              <div class="start-menu__pinned-app-icon">
+                <i class="ri-edge-new-fill"></i>
+              </div>
+              <p class="start-menu__pinned-app-title">Edge</p>
+            </div>
+          </div>
+        </div>
+        <div class="start-menu__bottom"></div>
+      </div>
+
+      <div class="context-menu">
+        <div class="context-menu__item">
+          <i class="ri-gallery-view-2"></i>
+          <p>View</p>
+          <i class="ri-arrow-right-s-line"></i>
+        </div>
+        <div class="context-menu__item">
+          <i class="ri-arrow-up-down-fill"></i>
+          <p>Sort by</p>
+          <i class="ri-arrow-right-s-line"></i>
+        </div>
+        <div class="context-menu__item">
+          <i class="ri-reset-right-line"></i>
+          <p>Refresh</p>
+        </div>
+        <hr>
+        <div class="context-menu__item">
+          <i class="ri-add-circle-line"></i>
+          <p>New</p>
+          <i class="ri-arrow-right-s-line"></i>
+        </div>
+        <hr>
+        <div class="context-menu__item">
+          <i class="ri-computer-line"></i>
+          <p>Display settings</p>
+        </div>
+        <div class="context-menu__item">
+          <i class="ri-pencil-line"></i>
+          <p>Personalize</p>
+        </div>
+        <hr>
+        <div class="context-menu__item">
+          <i class="ri-terminal-box-line"></i>
+          <p>Open in Terminal</p>
+        </div>
+        <hr>
+        <div class="context-menu__item">
+         <i class="ri-external-link-line"></i>
+          <p>Show more options</p>
+        </div>
+      </div>
+    </div>
+    <div class="taskbar">
+      <button type="button" class="taskbar__btn taskbar__btn--start start-btn">
+        <img class="taskbar__btn-icon" src="./images/start.png" alt="">
+      </button>
+    </div>
+  </div>
+</body>
+
+</html>
