@@ -16,6 +16,10 @@ function toggleContextMenu() {
   contextMenu.classList.toggle("context-menu--show");
 }
 
+function openContextMenu() {
+  contextMenu.classList.add("context-menu--show");
+}
+
 function closeContextMenu() {
   contextMenu.classList.remove("context-menu--show");
 }
@@ -41,7 +45,7 @@ desktop.addEventListener("contextmenu", (e) => {
   contextMenu.style.top = e.clientY + "px";
   contextMenu.style.left = e.clientX + "px";
 
-  toggleContextMenu();
+  openContextMenu();
   closeStartMenu();
 });
 
